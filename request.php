@@ -1,9 +1,17 @@
 <?php
 error_reporting(E_ALL);
-global $jiraDomain, $user, $psw;
+global $jiraDomain, $jiraUserInit, $jiraUserRecip, $jiraPswInit, $jiraPswRecip;
 
 function jira_req( $reqUri, $reqType = 'GET', $data = NULL ) {
-	global $jiraDomain, $user, $psw;
+	global $jiraDomain, $jiraUserInit, $jiraUserRecip, $jiraPswInit, $jiraPswRecip;
+
+	if( $jiraDomain == $jiraDomainInit ) {
+		$user = $jiraUserInit;
+		$psw = $jiraPswInit;
+	} else {
+		$user = $jiraUserRecip;
+		$psw = $jiraPswRecip;
+	}
 
 	$objCurl = curl_init();
 

@@ -39,7 +39,7 @@ foreach( $keys as $key ) {
 			'worker' => $worklog['worker']
 		];
 
-		// Post worklogs to participant jira
+		// Post worklogs to recipient jira
 		$jiraDomain = $jiraDomainRecip;
 		$data = $worklogToPost;
 		$postedWorklog = jira_req( '/rest/tempo-timesheets/4/worklogs', 'POST', $data );
